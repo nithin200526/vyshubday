@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do You Have a BRAIN..!!</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: black;
+      color: white;
+      text-align: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Starry background */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://www.transparenttextures.com/patterns/stardust.png);
+      z-index: -1;
+    }
+
+    h1 {
+      margin-top: 2rem;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px gold;
+    }
+
+    img {
+      margin-top: 1.5rem;
+      width: 200px;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 0 20px gold;
+    }
+
+    .button-container {
+      margin-top: 2rem;
+    }
+
+    .button {
+      background: linear-gradient(145deg, #f0c27b, #4b1248);
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      margin: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+
+    .button:hover {
+      transform: translateY(-5px) scale(1.05);
+    }
+
+    .caution {
+      color: red;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    .swipe-next {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: lightgray;
+      font-size: 1.2rem;
+      text-decoration: underline;
+      cursor: pointer;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Do You Have a BRAIN..!!</h1>
+  <img src="brain.jpeg" alt="Brain Image">
+  
+  <div class="button-container">
+    <button class="button" id="yesButton">YES</button>
+    <button class="button" id="noButton">NO</button>
+  </div>
+
+  <div class="caution" id="cautionText"></div>
+  <div class="swipe-next" id="swipeNext">Swipe for the Next Page &rarr;</div>
+
+  <script>
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const cautionText = document.getElementById('cautionText');
+    const swipeNext = document.getElementById('swipeNext');
+    let clickCount = 0;
+
+    // Handle Yes Button Clicks
+    yesButton.addEventListener('click', () => {
+      clickCount++;
+      cautionText.style.display = 'none';
+      
+      // Move the button randomly
+      yesButton.style.position = 'absolute';
+      yesButton.style.left = `${Math.random() * (window.innerWidth - yesButton.offsetWidth)}px`;
+      yesButton.style.top = `${Math.random() * (window.innerHeight - yesButton.offsetHeight)}px`;
+
+      if (clickCount % 5 === 0) {
+        cautionText.textContent = "Pleasee.... Oppuko kadha nik Brain ledhu ani";
+        cautionText.style.display = 'block';
+      }
+    });
+
+    // Handle No Button Clicks
+    noButton.addEventListener('click', () => {
+      cautionText.textContent = "Yahh...... I Know Vyshuuu nik Brain ledhu ani..";
+      cautionText.style.display = 'block';
+
+      // Show swipe tool
+      swipeNext.style.display = 'block';
+    });
+
+    // Swipe tool redirection
+    swipeNext.addEventListener('click', () => {
+      window.location.href = 'dairy.html'; // Redirect to another page
+    });
+  </script>
+</body>
+</html>
