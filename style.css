@@ -24,6 +24,10 @@ body {
     border-radius: 10px;
   }
   
+  #submit{
+    text-align: center;
+  }
+
   .box.left {
     flex-direction: column;
   }
