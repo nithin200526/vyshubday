@@ -42,7 +42,7 @@
       position: relative;
     }
 
-    .hare-krishna-button {
+    .hare-krishna-link {
       background: linear-gradient(145deg, #3b82f6, #1e3a8a);
       padding: 20px 40px;
       font-size: 1.8rem;
@@ -54,34 +54,33 @@
       box-shadow: 0 8px 15px rgba(0, 0, 255, 0.6);
       transition: all 0.3s ease;
       letter-spacing: 2px;
+      text-decoration: none;
+      display: inline-block;
     }
 
-    .hare-krishna-button:hover {
+    .hare-krishna-link:hover {
       transform: scale(1.1) translateY(-3px);
       box-shadow: 0 15px 25px rgba(0, 0, 255, 0.8);
     }
-
   </style>
 </head>
 <body>
 
   <div class="button-container">
-    <button class="hare-krishna-button" id="krishnaButton">HARE KRISHNA</button>
+    <a href="#" class="hare-krishna-link" id="krishnaLink">HARE KRISHNA</a>
   </div>
 
   <audio id="chantAudio" src="harekrishna.mp3"></audio>
 
   <script>
-    const button = document.getElementById('krishnaButton');
+    const link = document.getElementById('krishnaLink');
     const audio = document.getElementById('chantAudio');
 
-    button.addEventListener('click', () => {
-      button.disabled = true;
+    link.addEventListener('click', (e) => {
+      e.preventDefault(); // Prevent immediate navigation
       audio.play();
       audio.addEventListener('ended', () => {
-        setTimeout(() => {
-          window.location.href = 'index.html'; // Redirect after 1 second
-        }, 1000);
+        window.location.href = '2nd.html'; // Redirect after audio finishes
       });
     });
   </script>
