@@ -86,6 +86,25 @@
       cursor: pointer;
       display: none;
     }
+
+    .swipe-link {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, #f0c27b, #4b1248);
+      padding: 12px 25px;
+      text-decoration: none;
+      color: white;
+      font-size: 1.2rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.5);
+    }
+
+    .swipe-link:hover {
+      transform: translateX(-50%) scale(1.1);
+    }
   </style>
 </head>
 <body>
@@ -98,20 +117,20 @@
   </div>
 
   <div class="caution" id="cautionText"></div>
-  <div class="swipe-next" id="swipeNext">Swipe for the Next Page &rarr;</div>
+  <a id="swipeLink" class="swipe-link" href="4th.html">Click for the Next Page &rarr;</a>
 
   <script>
     const yesButton = document.getElementById('yesButton');
     const noButton = document.getElementById('noButton');
     const cautionText = document.getElementById('cautionText');
-    const swipeNext = document.getElementById('swipeNext');
+    const swipeLink = document.getElementById('swipeLink');
     let clickCount = 0;
 
     // Handle Yes Button Clicks
     yesButton.addEventListener('click', () => {
       clickCount++;
       cautionText.style.display = 'none';
-      
+
       // Move the button randomly
       yesButton.style.position = 'absolute';
       yesButton.style.left = `${Math.random() * (window.innerWidth - yesButton.offsetWidth)}px`;
@@ -128,13 +147,8 @@
       cautionText.textContent = "Yahh...... I Know Vyshuuu nik Brain ledhu ani..";
       cautionText.style.display = 'block';
 
-      // Show swipe tool
-      swipeNext.style.display = 'block';
-    });
-
-    // Swipe tool redirection
-    swipeNext.addEventListener('click', () => {
-      window.location.href = 'dairy.html'; // Redirect to another page
+      // Show swipe link
+      swipeLink.style.display = 'block';
     });
   </script>
 </body>
