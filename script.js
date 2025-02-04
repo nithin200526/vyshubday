@@ -40,4 +40,3 @@ window.onload = function () {
   //     window.location.href = 'https://birthday.mewtru.com/cswMK8Gu'; // Redirect to another page
   //   }, 2000);
   // }
-  window.location.href = 'https://birthday.mewtru.com/cswMK8Gu';
